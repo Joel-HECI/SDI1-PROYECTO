@@ -1,0 +1,117 @@
+$date
+  Wed May 17 09:41:17 2023
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module testbench $end
+$var reg 1 ! rst $end
+$var reg 1 " start $end
+$var reg 1 # stopin $end
+$var reg 1 $ door $end
+$var reg 1 % en $end
+$var reg 4 & tin0[3:0] $end
+$var reg 4 ' tin1[3:0] $end
+$var reg 4 ( win[3:0] $end
+$scope module glb $end
+$var reg 1 ) rst $end
+$var reg 1 * start $end
+$var reg 1 + stop_in $end
+$var reg 1 , door $end
+$var reg 4 - t_in0[3:0] $end
+$var reg 4 . t_in1[3:0] $end
+$var reg 4 / w_in[3:0] $end
+$var reg 1 0 enable_out $end
+$comment prev_state is not handled $end
+$comment next_state is not handled $end
+$var integer 32 1 t $end
+$var integer 32 2 w $end
+$var integer 32 3 safety $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+b0000 &
+b0000 '
+b0000 (
+0)
+0*
+0+
+0,
+b0000 -
+b0000 .
+b0000 /
+00
+b0 1
+b0 2
+b0 3
+#10000000000000
+b0011 '
+b0001 (
+b0011 .
+b0001 /
+b11110 1
+b1010 2
+b101000 3
+#20000000000000
+1"
+1%
+1*
+10
+#20010000000000
+0"
+0*
+#30010000000000
+1$
+0%
+1,
+00
+#40010000000000
+1"
+0$
+1%
+1*
+0,
+10
+#40020000000000
+0"
+0*
+#60020000000000
+1#
+0%
+1+
+00
+#60030000000000
+0#
+0+
+#70030000000000
+b0001 &
+b0101 '
+b1000 (
+b0001 -
+b0101 .
+b1000 /
+b110011 1
+b1010000 2
+b10000011 3
+#80030000000000
+1"
+1*
+#80040000000000
+0"
+0*
+#90040000000000
