@@ -1,0 +1,18 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/VIS_DIN_4DIG.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'VIS_DIN_4DIG'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/Clocks/clk_1hz.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'DIV_1HZ'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/Clocks/clk_200khz.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'DIV_VD'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/Contadores/cont_0a9.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'contador0a9'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/Contadores/cont_des.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'CONT_2DIG'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/State Machines/global.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'global'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/State Machines/potencia.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'potencia'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/mux4a2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mux4a2'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/electronica/Downloads/JOUSAMRON PROYECTO/JOUSAMRON PROYECTO.srcs/sources_1/imports/sources/main.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'main'
