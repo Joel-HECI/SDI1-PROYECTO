@@ -7,66 +7,31 @@ entity SR_SER_PAR is
 
 port ( r : in std_logic;
       clk : in std_logic;
-      d : in std_logic;
-      q : out std_logic_vector(3 downto 0));
+      d : in std_logic(3 downto 0);
+      q_out0, q_out1 : out std_logic_vector(3 downto 0));
 
 end entity;
 
 architecture Behavioral of SR_SER_PAR is
     
-        signal d_in, q_2, q_1, q_0: std_logic:='0';
-        signal index: integer range 0 to 3 :=0;
+        signal d_in: std_logic:='0';
+        signal q: std_logic_vector(7 downto 0):="00000000";
+        signal index_a: integer range 7 downto 0 :=7;
+        signal index_b: integer range 0 to 3 :=0;
         begin
 
-      --   process (clk , d)
-      --   begin
-            
-      --       if rising_edge(clk) then
+        process(clk)
+        begin
+            if(r='1') then
+                q<="00000000";
                 
-      --           for i in 0 to 3 loop
-      --               d_in <= d(index);
-      --           end loop;
-                
+            elsif(r='0' and rising_edge(clk)) then
+            for i in 0 to 3 loop
+              q(index_a-i)<=d(index_b+i);
+            end loop;
 
-      --       end if;
-
-
-      --   end process;
-
-        q3: entity work.FLIP_FLOP_D port map (
-        d => d_in,
-        ebl => '1',
-        rst=>r,
-        clk => clk,
-        q => q_2,
-        nq=>open);
-
-        q2: entity work.FLIP_FLOP_D port map (
-        d => q_2,
-        ebl => '1',
-        rst=>r,
-        clk => clk,
-        q => q_1,
-        nq=>open);
-
-        q1: entity work.FLIP_FLOP_D port map (
-        d => q_1,
-        ebl => '1',
-        rst=>r,
-        clk => clk,
-        q => q_0,
-        nq=>open);
-
-        q0: entity work.FLIP_FLOP_D port map (
-        d => q_0,
-        ebl => '1',
-        rst=>r,
-        clk => clk,
-        q => q(0),
-        nq=>open);
-
-        q(3)<=q_2;
-        q(2)<=q_1;
-        q(1)<=q_0;
-        
+            end if;
+        end process;
+        q_out0<=q(3 downto 0);
+        q_out1<=q(7 downto 4);
     end architecture;
