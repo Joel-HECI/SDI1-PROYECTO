@@ -5,9 +5,11 @@ use IEEE.numeric_std.all;
 
 entity SR_SER_PAR is
 
-port ( r, en, sr_r : in std_logic;
+port ( r, en : in std_logic;
       clk : in std_logic;
+
       d : in std_logic_vector(3 downto 0);
+      d_in0, d_in1 : in std_logic_vector(3 downto 0);
       q_out0, q_out1 : out std_logic_vector(3 downto 0));
 
 end entity;
@@ -24,9 +26,10 @@ architecture Behavioral of SR_SER_PAR is
 
         process(clk,r,en,d,q)
         begin
-            if sr_r='1' or (r='1' and en='0') then
+            if(r='1' and en='0') then
             
-                q<="00000000";             
+                q<="00000000";   
+
             elsif r='0' and en='0' then
                 if(rising_edge(clk)) then
                 for i in 0 to 3 loop
@@ -36,7 +39,11 @@ architecture Behavioral of SR_SER_PAR is
                 end loop;
     
                 end if;
+            elsif r='0' and en='1' then
+                q(7 downto 4)<=d_in1;
+                q(3 downto 0)<=d_in0;
             end if;
+
         end process;
         q_out0<=q(3 downto 0);
         q_out1<=q(7 downto 4);

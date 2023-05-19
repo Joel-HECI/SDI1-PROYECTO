@@ -18,7 +18,7 @@ architecture Behavioral of main is
 
     signal t_in_s,t_in0, t_in1: std_logic_vector(3 downto 0);
     signal clk1hz, clk200khz: std_logic;
-    signal sr_r: std_logic; 
+  
     signal w_1, w_0: std_logic_vector(3 downto 0);
     signal dig0_out, dig1_out: std_logic_vector(3 downto 0);
     signal BCD1, BCD2, BCD3, BCD4: std_logic_vector(3 downto 0);
@@ -51,14 +51,16 @@ architecture Behavioral of main is
             
             t_out => t_in_s
         );
-
+    
         sr: entity work.SR_SER_PAR
         port map(
             r => stop_in,
-            sr_r=>sr_r,
+           
             en=>enable,
             clk=> load,
             d=> t_in_s,
+            d_in0=> dig0_out,
+            d_in1=> dig1_out,
             q_out0=> t_in0,
             q_out1=> t_in1
         );
