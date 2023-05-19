@@ -14,15 +14,18 @@ end entity;
 
 architecture Behavioral of potencia is
     type states is (W1,W2,W3,W4,W5,W6,W7,W8);
-    signal prev_state, next_state: states;
+    signal prev_state: states:=W1;
+    signal next_state: states;
     signal w_out_0_s: STD_LOGIC_VECTOR(3 downto 0):="0000";
     begin
 
-    process(w_in,en)
+    process(w_in, en)
     begin
-        if w_in='1' and en='0' then
-            prev_state <= next_state;
-        end if;
+     if en='0' then
+            if rising_edge(w_in) then
+                prev_state <= next_state;
+          end if;
+     end if;
     end process;
 
 
@@ -58,7 +61,7 @@ architecture Behavioral of potencia is
                 next_state<=W8;
                 pot_out <= "01111111";
             when W8 =>
-                w_out_1 <= "1000";
+                w_out_1 <="1000";
                 next_state<=W1;
                 pot_out <= "11111111";
         end case;

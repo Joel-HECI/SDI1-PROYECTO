@@ -8,8 +8,8 @@ entity CONT_2DIG is
         clk: in std_logic;
         reset: in std_logic;
         enable: in std_logic;
-
-   
+      
+           sr_r: out std_logic;
         dig_in0, dig_in1: in std_logic_vector(3 downto 0);
         num_out: out std_logic_vector(6 downto 0);
         dig0, dig1: out std_logic_vector(3 downto 0)
@@ -28,14 +28,21 @@ architecture Behavioral of CONT_2DIG is
     process(clk, reset, enable, count)
     begin
     
-    
      if reset='1' and enable='0' then
         count<=0;
         dig0_s <= (others => '0');
         dig1_s <= (others => '0');
-      
-    elsif enable='1' then    
+        
+     elsif reset='0' and enable='0' then
+     
 
+         count <= to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
+            dig0_s <= unsigned(dig_in0); 
+            dig1_s <= unsigned(dig_in1);
+
+      
+    elsif enable='1' and reset='0' then    
+         
         if rising_edge(clk) and count>0 then
 
             count <= count - 1;
@@ -44,17 +51,16 @@ architecture Behavioral of CONT_2DIG is
                 dig1_s <= dig1_s - 1;
             else 
                 dig0_s <= dig0_s - 1;
-              
             end if;
-        end if;
-
-            count <= to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
-            dig0_s <= unsigned(dig_in0); 
-            dig1_s <= unsigned(dig_in1);
-           
-        end if;
-
-  
+            
+--            if count-1 = 0 then
+--            sr_r<='1';
+--            else
+--            sr_r<='0';
+--            end if;
+            
+        end if;         
+     end if;
 
     end process;
     

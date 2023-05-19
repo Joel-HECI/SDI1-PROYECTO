@@ -1,7 +1,7 @@
 v 4
-file . "./SR_SP.vhd" "3a8a3ee9feadb16337a77a1aadc29214dfc4aaba" "20230515185432.681":
-  entity sr_ser_par at 2( 1) + 0 on 19;
-  architecture behavioral of sr_ser_par at 15( 227) + 0 on 20;
+file . "./SR_SP.vhd" "05ad2cb284a1cfe17e3282e248dc7425134c802b" "20230518190008.574":
+  entity sr_ser_par at 2( 1) + 0 on 4;
+  architecture behavioral of sr_ser_par at 15( 252) + 0 on 4;
 file . "./FLIP-FLOP_D.vhd" "c51f5d9dfc09fd215fd25521329776af8a8e0c20" "20230515185432.680":
   entity flip_flop_d at 1( 0) + 0 on 17;
   architecture behavioral of flip_flop_d at 14( 213) + 0 on 18;
@@ -14,9 +14,9 @@ file . "./State Machines/potencia.vhd" "2e4be0cea26b2671618d092f39589589566a9d0c
 file . "./Contadores/cont_0a9.vhd" "5f96bfa32be2d470ccc2ebe54c00af80bbfd6383" "20230515193527.237":
   entity contador0a9 at 1( 0) + 0 on 21;
   architecture contador0a9 of contador0a9 at 13( 224) + 0 on 22;
-file . "./State Machines/global.vhd" "c04a6fc87a0210d45cd6f1c112bace44c79aa290" "20230517144117.543":
+file . "./State Machines/global.vhd" "c04a6fc87a0210d45cd6f1c112bace44c79aa290" "20230518190008.718":
   entity global at 1( 0) + 0 on 23;
   architecture behavioral of global at 21( 392) + 0 on 24;
-file . "./Test/testbench-global.vhd" "6d52465ba7676b085effe29971934752a32ae9da" "20230517144117.543":
+file . "./Test/testbench-global.vhd" "6d52465ba7676b085effe29971934752a32ae9da" "20230518190008.718":
   entity testbench at 1( 0) + 0 on 25;
   architecture behavioral of testbench at 8( 103) + 0 on 26;

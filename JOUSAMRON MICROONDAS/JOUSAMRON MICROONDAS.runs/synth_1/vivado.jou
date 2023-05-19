@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Wed May 17 15:58:57 2023
-# Process ID: 3492
+# Start of session at: Thu May 18 14:17:32 2023
+# Process ID: 6932
 # Current directory: C:/Users/electronica.ECINUT/Downloads/SDI1-PROYECTO-main/SDI1-PROYECTO-main/JOUSAMRON MICROONDAS/JOUSAMRON MICROONDAS.runs/synth_1
 # Command line: vivado.exe -log main.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source main.tcl
 # Log file: C:/Users/electronica.ECINUT/Downloads/SDI1-PROYECTO-main/SDI1-PROYECTO-main/JOUSAMRON MICROONDAS/JOUSAMRON MICROONDAS.runs/synth_1/main.vds

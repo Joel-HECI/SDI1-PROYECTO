@@ -44,7 +44,7 @@ set_property PACKAGE_PIN U18 [get_ports rst]
 set_property PACKAGE_PIN T18 [get_ports start]
 set_property PACKAGE_PIN U17 [get_ports stop_in]
 set_property PACKAGE_PIN T17 [get_ports t_in]
-set_property PACKAGE_PIN U1 [get_ports w]
+set_property PACKAGE_PIN U18 [get_ports w]
 set_property PACKAGE_PIN W19 [get_ports load]
 set_property IOSTANDARD LVCMOS25 [get_ports clk]
 set_property IOSTANDARD LVCMOS25 [get_ports door]
@@ -64,3 +64,4 @@ set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets w_IBUF]
 
 set_property IOSTANDARD LVCMOS25 [get_ports en]
 set_property PACKAGE_PIN U16 [get_ports en]
+

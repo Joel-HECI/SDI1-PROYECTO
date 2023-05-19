@@ -43,10 +43,10 @@ architecture Behavioral of global is
     process(prev_state, start, stop_in, door, t,w,safety)
 
     begin
-        if prev_state=running and (door='1' or rising_edge(stop_in)) then
+        if prev_state=running and (door='1' or rising_edge(stop_in) or t=0) then
             prev_state<=next_state;
 
-        elsif prev_state=stopped and (rising_edge(start) and (t>0) and (safety<100) and (door='0')) then
+        elsif prev_state=stopped and (rising_edge(start) and (t>0) and (safety<=100) and (door='0')) then
             prev_state<=next_state;
         end if;
 

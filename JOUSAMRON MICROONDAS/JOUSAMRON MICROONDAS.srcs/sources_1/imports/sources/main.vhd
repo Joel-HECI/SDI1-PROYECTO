@@ -16,8 +16,9 @@ end entity;
 
 architecture Behavioral of main is
 
-    signal t_in,t_in0, t_in1: std_logic_vector(3 downto 0);
+    signal t_in_s,t_in0, t_in1: std_logic_vector(3 downto 0);
     signal clk1hz, clk200khz: std_logic;
+    signal sr_r: std_logic; 
     signal w_1, w_0: std_logic_vector(3 downto 0);
     signal dig0_out, dig1_out: std_logic_vector(3 downto 0);
     signal BCD1, BCD2, BCD3, BCD4: std_logic_vector(3 downto 0);
@@ -42,18 +43,22 @@ architecture Behavioral of main is
     cont0a9: entity work.contador0a9 
         port map(
             t_in => t_in,
+            
+            start=>start,
+            load=>load,
             rst => stop_in,
             en=>enable,
             
-            t_out => t_in
+            t_out => t_in_s
         );
 
         sr: entity work.SR_SER_PAR
         port map(
             r => stop_in,
+            sr_r=>sr_r,
             en=>enable,
             clk=> load,
-            d=> t_in,
+            d=> t_in_s,
             q_out0=> t_in0,
             q_out1=> t_in1
         );
@@ -83,8 +88,8 @@ architecture Behavioral of main is
             
             w_in => w_1,
             
-            t_in0 => t_in0,
-            t_in1 => t_in1,
+            t_in0 => dig0_out,
+            t_in1 => dig1_out,
 
             enable_out => enable
         );

@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache C:/Users/electronica.ECINUT/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-3336-ELECTRONICA67/incrSyn
+set_param synth.incrementalSynthesisCache C:/Users/electronica.ECINUT/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-3632-ELECTRONICA67/incrSyn
 set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
@@ -91,6 +91,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
+  {C:/Users/electronica.ECINUT/Downloads/SDI1-PROYECTO-main/SDI1-PROYECTO-main/JOUSAMRON MICROONDAS/JOUSAMRON MICROONDAS.srcs/sources_1/imports/sources/SR_SP.vhd}
   {C:/Users/electronica.ECINUT/Downloads/SDI1-PROYECTO-main/SDI1-PROYECTO-main/JOUSAMRON MICROONDAS/JOUSAMRON MICROONDAS.srcs/sources_1/imports/sources/VIS_DIN_4DIG.vhd}
   {C:/Users/electronica.ECINUT/Downloads/SDI1-PROYECTO-main/SDI1-PROYECTO-main/JOUSAMRON MICROONDAS/JOUSAMRON MICROONDAS.srcs/sources_1/imports/sources/Clocks/clk_1hz.vhd}
   {C:/Users/electronica.ECINUT/Downloads/SDI1-PROYECTO-main/SDI1-PROYECTO-main/JOUSAMRON MICROONDAS/JOUSAMRON MICROONDAS.srcs/sources_1/imports/sources/Clocks/clk_200khz.vhd}
