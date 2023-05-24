@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Thu May 18 14:18:43 2023
-| Host         : ELECTRONICA67 running 64-bit major release  (build 9200)
+| Date         : Fri May 19 14:33:38 2023
+| Host         : ELECTRONICA02 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
 | Design       : main
 | Device       : xc7a35t
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    50 |
-|    Minimum number of control sets                        |    50 |
+| Total control sets                                       |    74 |
+|    Minimum number of control sets                        |    74 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   327 |
+| Unused register locations in slices containing registers |   499 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,11 +39,11 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    50 |
-| >= 0 to < 4        |    45 |
-| >= 4 to < 6        |     1 |
+| Total control sets |    74 |
+| >= 0 to < 4        |    69 |
+| >= 4 to < 6        |     2 |
 | >= 6 to < 8        |     1 |
-| >= 8 to < 10       |     1 |
+| >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              11 |            6 |
-| No           | No                    | Yes                    |              16 |           15 |
-| No           | Yes                   | No                     |              51 |           24 |
+| No           | No                    | No                     |              15 |            7 |
+| No           | No                    | Yes                    |              24 |           23 |
+| No           | Yes                   | No                     |              59 |           32 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              27 |           20 |
+| Yes          | No                    | Yes                    |              27 |           23 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,59 +70,83 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------------+------------------+------------------------------+------------------+----------------+--------------+
-|        Clock Signal        |   Enable Signal  |       Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------------+------------------+------------------------------+------------------+----------------+--------------+
-|  clk1/CLK_o_reg_0_BUFG     |                  | sr/prev_state_reg_P_1        |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | sr/prev_state_reg_P_2        |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | sr/q_reg[4]_2                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_7    |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_16   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_14   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_10   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_12   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_15   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_11   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_8    |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_9    |                1 |              1 |         1.00 |
-|  global/prev_state_reg_P_5 |                  | global/prev_state_reg_P_16   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_13   |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/prev_state_reg_P          |                1 |              1 |         1.00 |
-|  start_IBUF_BUFG           |                  | cont_des/prev_state_reg_P_0  |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/prev_state_reg_P_0        |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[1]_0                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[2]_1                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[5]_0                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[4]_0                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[7]_3                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[3]_0                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | global/prev_state_reg_P_5    |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/dig1_s0 | sr/q_reg[6]_0                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/dig1_s0 | sr/q_reg[5]_1                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/dig1_s0 | sr/q_reg[7]_2                |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/dig1_s0 | sr/q_reg[4]_1                |                1 |              1 |         1.00 |
-|  sr/prev_state_reg_P       |                  | sr/prev_state_reg_P_2        |                1 |              1 |         1.00 |
-|  sr/prev_state_reg_P_0     |                  | sr/q_reg[4]_2                |                1 |              1 |         1.00 |
-|  sr/q_reg[1]_0             |                  | global/prev_state_reg_P_11   |                1 |              1 |         1.00 |
-|  sr/q_reg[2]_1             |                  | global/prev_state_reg_P_12   |                1 |              1 |         1.00 |
-|  sr/q_reg[5]_0             |                  | global/prev_state_reg_P_14   |                1 |              1 |         1.00 |
-|  sr/q_reg[6]_0             |                  | global/prev_state_reg_P_9    |                1 |              1 |         1.00 |
-|  sr/q_reg[5]_1             |                  | global/prev_state_reg_P_8    |                1 |              1 |         1.00 |
-|  sr/q_reg[7]_2             |                  | global/prev_state_reg_P_10   |                1 |              1 |         1.00 |
-|  sr/q_reg[4]_0             |                  | global/prev_state_reg_P_15   |                1 |              1 |         1.00 |
-|  sr/q_reg[7]_3             |                  | sr/prev_state_reg_P_1        |                1 |              1 |         1.00 |
-|  sr/q_reg[3]_0             |                  | global/prev_state_reg_P_13   |                1 |              1 |         1.00 |
-|  sr/q_reg[4]_1             |                  | global/prev_state_reg_P_7    |                1 |              1 |         1.00 |
-|  clk1/CLK_o_reg_0_BUFG     |                  | global/prev_state_reg_P_6    |                1 |              2 |         2.00 |
-|  clk1/CLK_o_reg_0_BUFG     | cont_des/count0  | sr/q_reg[0]_0                |                2 |              2 |         1.00 |
-|  sr/q_reg[0]_0             |                  | global/prev_state_reg_P_6    |                1 |              2 |         2.00 |
-| ~clk200k/CLK               |                  |                              |                1 |              2 |         2.00 |
-|  w_IBUF_BUFG               |                  |                              |                3 |              3 |         1.00 |
-|  t_in_IBUF_BUFG            | global/q0        | global/AR[0]                 |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG             |                  |                              |                2 |              6 |         3.00 |
-|  load_IBUF_BUFG            | global/q0        | global/prev_state_reg_P_2[0] |                4 |              8 |         2.00 |
-|  clk_IBUF_BUFG             |                  | clk200k/CLKo                 |                3 |             11 |         3.67 |
-|  clk_IBUF_BUFG             |                  | clk1/CLKo_0                  |                7 |             25 |         3.57 |
-+----------------------------+------------------+------------------------------+------------------+----------------+--------------+
++-----------------------------+------------------------------+-----------------------------+------------------+----------------+--------------+
+|         Clock Signal        |         Enable Signal        |       Set/Reset Signal      | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------+------------------------------+-----------------------------+------------------+----------------+--------------+
+|  sr/prev_state_reg_P_10     |                              | sr/prev_state_reg_P_9       |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_2      |                              | sr/prev_state_reg_P_1       |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_16     |                              | sr/prev_state_reg_P_15      |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_8      |                              | sr/prev_state_reg_P_7       |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_4      |                              | sr/prev_state_reg_P_3       |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_12     |                              | sr/prev_state_reg_P_11      |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_6      |                              | sr/prev_state_reg_P_5       |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_0      |                              | sr/prev_state_reg_P         |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_14     |                              | sr/prev_state_reg_P_13      |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_2 |                1 |              1 |         1.00 |
+|  global/prev_state_reg_P_11 |                              | global/prev_state_reg_P_10  |                1 |              1 |         1.00 |
+|  global/prev_state_reg_P_5  |                              | global/prev_state_reg_P_4   |                1 |              1 |         1.00 |
+|  global/prev_state_reg_P_7  |                              | global/prev_state_reg_P_6   |                1 |              1 |         1.00 |
+|  global/prev_state_reg_P_9  |                              | global/prev_state_reg_P_8   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | global/prev_state_reg_P_5   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | global/prev_state_reg_P_7   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | global/prev_state_reg_P_9   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/dig1_s0             | sr/prev_state_reg_P_2       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/dig1_s0             | sr/prev_state_reg_P_8       |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_8 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_3 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_7 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_5 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_6 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_1 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             |                              | cont_des/prev_state_reg_P_4 |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig0_s_reg[0]_C_0  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig0_s_reg[3]_C_0  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig0_s_reg[1]_C_1  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig0_s_reg[2]_C_0  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig1_s_reg[3]_C_0  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig1_s_reg[0]_C_0  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig1_s_reg[2]_C_0  |                1 |              1 |         1.00 |
+|  load_IBUF_BUFG             | global/p_2_in                | cont_des/dig1_s_reg[1]_C_0  |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/dig1_s0             | sr/prev_state_reg_P_4       |                1 |              1 |         1.00 |
+|  start_IBUF_BUFG            |                              | cont_des/prev_state_reg_P_0 |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/dig1_s0             | sr/prev_state_reg_P_0       |                1 |              1 |         1.00 |
+|  cont_des/dig0_s_reg[0]_C_0 |                              | cont_des/prev_state_reg_P_4 |                1 |              1 |         1.00 |
+|  cont_des/dig0_s_reg[3]_C_0 |                              | cont_des/prev_state_reg_P_1 |                1 |              1 |         1.00 |
+|  cont_des/dig0_s_reg[1]_C_1 |                              | cont_des/prev_state_reg_P_3 |                1 |              1 |         1.00 |
+|  cont_des/dig0_s_reg[2]_C_0 |                              | cont_des/prev_state_reg_P_2 |                1 |              1 |         1.00 |
+|  cont_des/dig1_s_reg[3]_C_0 |                              | cont_des/prev_state_reg_P_5 |                1 |              1 |         1.00 |
+|  cont_des/dig1_s_reg[0]_C_0 |                              | cont_des/prev_state_reg_P_8 |                1 |              1 |         1.00 |
+|  cont_des/dig1_s_reg[2]_C_0 |                              | cont_des/prev_state_reg_P_6 |                1 |              1 |         1.00 |
+|  cont_des/dig1_s_reg[1]_C_0 |                              | cont_des/prev_state_reg_P_7 |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_13      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P         |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_3       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_11      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_15      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_5       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_9       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_1       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_7       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | global/prev_state_reg_P_10  |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | global/prev_state_reg_P_4   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | global/prev_state_reg_P_6   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | global/prev_state_reg_P_8   |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | sr/prev_state_reg_P_10      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | sr/prev_state_reg_P_16      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | sr/prev_state_reg_P_12      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | sr/prev_state_reg_P_6       |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | sr/prev_state_reg_P_14      |                1 |              1 |         1.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | global/prev_state_reg_P_11  |                1 |              1 |         1.00 |
+|  sr/prev_state_reg_P_18     |                              | sr/prev_state_reg_P_17      |                1 |              2 |         2.00 |
+|  clk1/CLK_o_reg_0_BUFG      |                              | sr/prev_state_reg_P_17      |                1 |              2 |         2.00 |
+|  clk1/CLK_o_reg_0_BUFG      | cont_des/count[6]_P_i_1_n_0  | sr/prev_state_reg_P_18      |                1 |              2 |         2.00 |
+| ~clk200k/CLK                |                              |                             |                1 |              2 |         2.00 |
+|  w_IBUF_BUFG                |                              |                             |                3 |              3 |         1.00 |
+|  global/E[0]                |                              |                             |                1 |              4 |         4.00 |
+|  t_in_IBUF_BUFG             | global/prev_state_reg_P_2[0] | global/AR[0]                |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG              |                              |                             |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG              |                              | clk200k/CLKo                |                3 |             11 |         3.67 |
+|  clk_IBUF_BUFG              |                              | clk1/CLKo_0                 |                7 |             25 |         3.57 |
++-----------------------------+------------------------------+-----------------------------+------------------+----------------+--------------+
 
 

@@ -22,26 +22,21 @@ architecture Behavioral of CONT_2DIG is
     
     signal count: integer range 90 downto 0 := 0;
     signal dig0_s,dig1_s: unsigned(3 downto 0) := (others => '0');
+    signal r_s: std_logic:='0';
 
     begin
 
-    process(clk, reset, enable, count)
+    process(clk, enable, count,r_s)
     begin
     
-     if reset='1' and enable='0' then
-        count<=0;
-        dig0_s <= (others => '0');
-        dig1_s <= (others => '0');
-        
-     elsif reset='0' and enable='0' then
-     
-
-         count <= to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
+     if enable='0' then
+   
+        count <= to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
             dig0_s <= unsigned(dig_in0); 
             dig1_s <= unsigned(dig_in1);
 
       
-    elsif enable='1' and reset='0' then    
+    elsif enable='1' then    
          
         if rising_edge(clk) and count>0 then
 

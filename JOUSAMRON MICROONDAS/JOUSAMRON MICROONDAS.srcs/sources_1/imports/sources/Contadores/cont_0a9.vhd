@@ -22,7 +22,7 @@ architecture contador0a9 of contador0a9 is
         begin
             if (rst='1' and en='0') or start='1' then
                 contador <= (others => '0');
-               
+                t_out_s <= std_logic_vector(contador);
               
             elsif rst='0' and en='0' then 
             if  rising_edge(t_in) and en='0' then
@@ -30,10 +30,13 @@ architecture contador0a9 of contador0a9 is
                     contador <= (others => '0');
                 else
                     contador <= contador + 1;
+                    
                 end if;
-            end if;
+                
+            end if;  
+             t_out_s <= std_logic_vector(contador);
             end if;            
-         t_out_s <= std_logic_vector(contador);
+         
          
          
             
