@@ -1,28 +1,28 @@
 v 4
-file . "./State Machines/global.vhd" "2b504ad3baa0f92f6a9f84ccac074d12c4d8f9a2" "20230525040126.776":
+file . "./State Machines/global.vhd" "2b504ad3baa0f92f6a9f84ccac074d12c4d8f9a2" "20230525051321.226":
   entity global at 1( 0) + 0 on 19;
   architecture behavioral of global at 21( 372) + 0 on 20;
-file . "./State Machines/potencia.vhd" "582b5ef396ca1080a4f6ea6fdb057d5027240eb3" "20230525040126.776":
+file . "./State Machines/potencia.vhd" "582b5ef396ca1080a4f6ea6fdb057d5027240eb3" "20230525051321.226":
   entity potencia at 1( 0) + 0 on 21;
   architecture behavioral of potencia at 15( 304) + 0 on 22;
-file . "./Contadores/cont_des.vhd" "4ea11a0c6d31e3b9fca4a9e56184410d501980ee" "20230525040126.776":
+file . "./Contadores/cont_des.vhd" "4ea11a0c6d31e3b9fca4a9e56184410d501980ee" "20230525051321.226":
   entity cont_2dig at 1( 0) + 0 on 17;
   architecture behavioral of cont_2dig at 21( 427) + 0 on 18;
-file . "./Contadores/cont_0a9.vhd" "db6cdf4446d0229003df6dd76a2acc3dd3387689" "20230525040126.776":
+file . "./Contadores/cont_0a9.vhd" "9655e74183acfafab68ec9151305a68580789be4" "20230525051321.226":
   entity contador0a9 at 1( 0) + 0 on 13;
-  architecture contador0a9 of contador0a9 at 14( 223) + 0 on 14;
-file . "mux4a2.vhd" "aee0d8963684cfc36649038e8915f5978870a80e" "20230525040126.620":
+  architecture contador0a9 of contador0a9 at 15( 271) + 0 on 14;
+file . "mux4a2.vhd" "aee0d8963684cfc36649038e8915f5978870a80e" "20230525051321.063":
   entity mux4a2 at 2( 1) + 0 on 4;
   architecture arch_mux42 of mux4a2 at 17( 410) + 0 on 4;
-file . "SR_SP.vhd" "733306335fe30451dc2fe11f2c99ff4eeb2d6453" "20230525040126.776":
+file . "SR_SP.vhd" "733306335fe30451dc2fe11f2c99ff4eeb2d6453" "20230525051321.226":
   entity sr_ser_par at 2( 1) + 0 on 15;
   architecture behavioral of sr_ser_par at 17( 318) + 0 on 16;
-file . "enable.vhd" "2b68e18216303cbca99cedd5b34b27ff4e4c6e5f" "20230525040126.775":
+file . "enable.vhd" "adbba0ea2b4119dd47adb47edcba0bc51f045708" "20230525051321.225":
   entity enable_block at 1( 0) + 0 on 11;
-  architecture behavioral of enable_block at 14( 201) + 0 on 12;
-file . "mainT.vhd" "4b4fc53148fe1834234e7e19c6c7b60556dab14c" "20230525040126.776":
+  architecture behavioral of enable_block at 19( 330) + 0 on 12;
+file . "mainT.vhd" "aa11d16bba81aeb7be38aa4fa60424582ea3e4f4" "20230525051321.226":
   entity maint at 1( 0) + 0 on 23;
   architecture behavioral of maint at 17( 406) + 0 on 24;
-file . "./Test/testbench-main.vhd" "22fe19591f356153e9cb143787cfbc964b45aaf5" "20230525040126.776":
+file . "./Test/testbench-main.vhd" "390a2ff7c51ca6fafd1b956760c370360dc24bf1" "20230525051321.226":
   entity testbench at 1( 0) + 0 on 25;
   architecture behavioral of testbench at 8( 103) + 0 on 26;

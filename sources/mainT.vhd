@@ -26,7 +26,7 @@ architecture Behavioral of mainT is
     
     signal BCD1, BCD2, BCD3, BCD4: std_logic_vector(3 downto 0);
 
-    signal load_s, w_s, t_s: std_logic;
+    signal load_s, w_s, t_s, start_s, stop_s, rst_s: std_logic;
 
     signal enable: std_logic;
     begin 
@@ -50,29 +50,37 @@ architecture Behavioral of mainT is
         port map(
 
             en=> enable,
+            
             load=>load,
             t=>t_in,
             w=>w,
 
             load_o=>load_s,
             w_o=>w_s,
-            t_o=>t_s
+            t_o=>t_s,
+
+            start=>start,
+            stop_in=>stop_in,
+
+            start_o=>start_s,
+            stop_o=>stop_s,
+            rst_o=>rst_s
         );
 
     cont0a9: entity work.contador0a9 
         port map(
             t_in => t_s,
-            
-            start=>start,
+            sr_in => t_in1,
+            start=>start_s,
             load=>load_s,
-            rst => stop_in,
+            rst => rst_s,
 
             t_out => t_in_s
         );
     
         sr: entity work.SR_SER_PAR
         port map(
-            r => stop_in,
+            r => rst_s,
            
             en=>enable,
             clk=> load_s,
@@ -86,7 +94,7 @@ architecture Behavioral of mainT is
     cont_des: entity  work.CONT_2DIG
         port map(
             clk => clk1hz,
-            reset => stop_in,
+            reset => rst_s,
             enable => enable,
 
             dig_in0 => t_in0,
@@ -102,8 +110,8 @@ architecture Behavioral of mainT is
         port map(
 
            
-            start => start,
-            stop_in => stop_in,
+            start => start_s,
+            stop_in => stop_s,
             door => door,
             
             w_in => w_1,

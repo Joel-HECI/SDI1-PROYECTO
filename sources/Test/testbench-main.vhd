@@ -102,7 +102,19 @@ architecture behavioral of testbench is
 
         door <= '1';
         wait for 2 sec;
-        load <= '0';
+        door <= '0';
+        
+        wait for 2 sec;
+
+        start <= '1';
+        wait for 1 sec;
+        start <= '0';
+
+        wait for 2 sec;
+
+        stop_in <= '1';
+        wait for 1 sec;
+        stop_in <= '0';
 
     wait;
     end process;    
