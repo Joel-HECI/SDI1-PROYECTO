@@ -4,7 +4,8 @@ use IEEE.numeric_std.all;
 
 entity contador0a9 is
     port (
-        t_in, rst,en, load, start: in std_logic;
+        sr_in: in std_logic_vector(3 downto 0);
+        t_in, rst, load, start: in std_logic;
         t_out: out std_logic_vector(3 downto 0)
 
         );
@@ -15,31 +16,37 @@ architecture contador0a9 of contador0a9 is
     
     signal contador : unsigned(3 downto 0) := (others => '0');
     signal t_out_s: std_logic_vector(3 downto 0):= (others => '0');
-
+    signal sr_in_s: unsigned(3 downto 0):=(others=>'0');
+    
+    
     
     begin
-        process(t_in, rst,en,load, start)
+    
+    sr_in_s<=UNSIGNED(sr_in);
+        process(t_in, rst,load, start, sr_in)
         begin
-            if (rst='1' and en='0') or start='1' then
+
+            if rst='1' or start='1' then
                 contador <= (others => '0');
-                t_out_s <= std_logic_vector(contador);
+
               
-            elsif rst='0' and en='0' then 
-            if  rising_edge(t_in) and en='0' then
-                if contador >= 9 then
-                    contador <= (others => '0');
-                else
-                    contador <= contador + 1;
+            elsif rst='0' then 
+                if  rising_edge(t_in) then
+                    if contador >= 9 then
+                        contador <= (others => '0');
+                    else
+                        contador <= contador + 1;
+                        
+                    end if;
                     
-                end if;
-                
-            end if;  
-             t_out_s <= std_logic_vector(contador);
+                end if; 
+                t_out_s <= std_logic_vector(contador); 
             end if;            
          
+            if falling_edge(load) and sr_in_s=contador then
+                --contador <= (others => '0');
+            end if;
          
-         
-            
         end process;
         
         t_out <= t_out_s;
