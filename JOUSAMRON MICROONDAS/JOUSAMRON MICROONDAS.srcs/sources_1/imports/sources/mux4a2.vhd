@@ -12,9 +12,9 @@ entity mux4a2 is
         Y0 : out STD_LOGIC_VECTOR (3 downto 0);
         Y1: out STD_LOGIC_VECTOR (3 downto 0)
     );
- end mux4a2;
+ end entity;
 
-architecture arch_mux42 of mux4a2 is
+architecture Behavioral of mux4a2 is
     begin
         
     Y0 <= IA WHEN S='1'

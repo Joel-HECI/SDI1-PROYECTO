@@ -1,22 +1,28 @@
 v 4
-file . "./SR_SP.vhd" "05ad2cb284a1cfe17e3282e248dc7425134c802b" "20230518190008.574":
-  entity sr_ser_par at 2( 1) + 0 on 4;
-  architecture behavioral of sr_ser_par at 15( 252) + 0 on 4;
-file . "./FLIP-FLOP_D.vhd" "c51f5d9dfc09fd215fd25521329776af8a8e0c20" "20230515185432.680":
-  entity flip_flop_d at 1( 0) + 0 on 17;
-  architecture behavioral of flip_flop_d at 14( 213) + 0 on 18;
-file . "./Contadores/cont_des.vhd" "690ae09430ced6b73ec1a1c9725eca48590fe13d" "20230517144117.434":
-  entity cont_2dig at 1( 0) + 0 on 4;
-  architecture behavioral of cont_2dig at 21( 397) + 0 on 4;
-file . "./State Machines/potencia.vhd" "2e4be0cea26b2671618d092f39589589566a9d0c" "20230516165415.642":
-  entity potencia at 1( 0) + 0 on 4;
-  architecture behavioral of potencia at 14( 257) + 0 on 4;
-file . "./Contadores/cont_0a9.vhd" "5f96bfa32be2d470ccc2ebe54c00af80bbfd6383" "20230515193527.237":
-  entity contador0a9 at 1( 0) + 0 on 21;
-  architecture contador0a9 of contador0a9 at 13( 224) + 0 on 22;
-file . "./State Machines/global.vhd" "c04a6fc87a0210d45cd6f1c112bace44c79aa290" "20230518190008.718":
-  entity global at 1( 0) + 0 on 23;
-  architecture behavioral of global at 21( 392) + 0 on 24;
-file . "./Test/testbench-global.vhd" "6d52465ba7676b085effe29971934752a32ae9da" "20230518190008.718":
+file . "./State Machines/global.vhd" "2b504ad3baa0f92f6a9f84ccac074d12c4d8f9a2" "20230525040126.776":
+  entity global at 1( 0) + 0 on 19;
+  architecture behavioral of global at 21( 372) + 0 on 20;
+file . "./State Machines/potencia.vhd" "582b5ef396ca1080a4f6ea6fdb057d5027240eb3" "20230525040126.776":
+  entity potencia at 1( 0) + 0 on 21;
+  architecture behavioral of potencia at 15( 304) + 0 on 22;
+file . "./Contadores/cont_des.vhd" "4ea11a0c6d31e3b9fca4a9e56184410d501980ee" "20230525040126.776":
+  entity cont_2dig at 1( 0) + 0 on 17;
+  architecture behavioral of cont_2dig at 21( 427) + 0 on 18;
+file . "./Contadores/cont_0a9.vhd" "db6cdf4446d0229003df6dd76a2acc3dd3387689" "20230525040126.776":
+  entity contador0a9 at 1( 0) + 0 on 13;
+  architecture contador0a9 of contador0a9 at 14( 223) + 0 on 14;
+file . "mux4a2.vhd" "aee0d8963684cfc36649038e8915f5978870a80e" "20230525040126.620":
+  entity mux4a2 at 2( 1) + 0 on 4;
+  architecture arch_mux42 of mux4a2 at 17( 410) + 0 on 4;
+file . "SR_SP.vhd" "733306335fe30451dc2fe11f2c99ff4eeb2d6453" "20230525040126.776":
+  entity sr_ser_par at 2( 1) + 0 on 15;
+  architecture behavioral of sr_ser_par at 17( 318) + 0 on 16;
+file . "enable.vhd" "2b68e18216303cbca99cedd5b34b27ff4e4c6e5f" "20230525040126.775":
+  entity enable_block at 1( 0) + 0 on 11;
+  architecture behavioral of enable_block at 14( 201) + 0 on 12;
+file . "mainT.vhd" "4b4fc53148fe1834234e7e19c6c7b60556dab14c" "20230525040126.776":
+  entity maint at 1( 0) + 0 on 23;
+  architecture behavioral of maint at 17( 406) + 0 on 24;
+file . "./Test/testbench-main.vhd" "22fe19591f356153e9cb143787cfbc964b45aaf5" "20230525040126.776":
   entity testbench at 1( 0) + 0 on 25;
   architecture behavioral of testbench at 8( 103) + 0 on 26;

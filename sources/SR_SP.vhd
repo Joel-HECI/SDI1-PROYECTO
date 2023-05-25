@@ -16,16 +16,12 @@ end entity;
 
 architecture Behavioral of SR_SER_PAR is
     
-        signal d_in: std_logic:='0';
-        signal res_toggle: std_logic:='0';
-        signal r_s: std_logic:='1';
-        signal aux: std_logic_vector(3 downto 0);
+
         signal q: std_logic_vector(7 downto 0):="00000000";
-        signal index_a: integer range 7 downto 0 :=7;
-        signal index_b: integer range 0 to 3 :=0;
+
         begin
 
-        process(clk,r,en,d,q,r_s)
+        process(clk,r,en,d,q,d_in1,d_in0)
         begin
                  
         if(r='1' and en='0') then

@@ -2,21 +2,21 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity main is
+entity mainT is
     port(
-        clk : in std_logic;
+        clk1hz : in std_logic;
         t_in, load, door,w : in std_logic;
         en: out std_logic;
         start,stop_in: in std_logic;
-        SAL_7SEG : out std_logic_vector(6 downto 0);
-        ANODOS: out std_logic_vector(3 downto 0);
+        --SAL_7SEG : out std_logic_vector(6 downto 0);
+        --ANODOS: out std_logic_vector(3 downto 0);
         LED:out std_logic_vector(7 downto 0)
     );
 end entity;
 
-architecture Behavioral of main is
+architecture Behavioral of mainT is
 
-    signal clk1hz, clk200khz: std_logic;
+    --signal clk1hz, clk200khz: std_logic;
     
     signal t_in_s,t_in0, t_in1: std_logic_vector(3 downto 0);
   
@@ -33,17 +33,17 @@ architecture Behavioral of main is
     
 
     
-    clk1: entity work.DIV_1HZ
-        port map(
-            clk => clk,
-            CLK_o => clk1hz
-        );
+    -- clk1: entity work.DIV_1HZ
+    --     port map(
+    --         clk => clk,
+    --         CLK_o => clk1hz
+    --     );
 
-    clk200k: entity work.DIV_VD
-        port map(
-            clk => clk,
-            CLK_o => clk200khz
-        );
+    -- clk200k: entity work.DIV_VD
+    --     port map(
+    --         clk => clk,
+    --         CLK_o => clk200khz
+    --     );
 
 
     en_block: entity work.enable_block
@@ -66,8 +66,7 @@ architecture Behavioral of main is
             start=>start,
             load=>load_s,
             rst => stop_in,
-            en=>enable,
-            
+
             t_out => t_in_s
         );
     
@@ -125,16 +124,16 @@ architecture Behavioral of main is
             pot_out=> LED
         );
 
-        VD: entity work.VIS_DIN_4DIG
+        -- VD: entity work.VIS_DIN_4DIG
         
-        port map(
-        clk=> clk200khz,
-        ANODS=> ANODOS,
-        SAL7SEG=> SAL_7SEG,
-        BCD1=>dig1_out,
-        BCD2=>dig0_out,
-        BCD3=>w_1,
-        BCD4=>w_0
-        );
+        -- port map(
+        -- clk=> clk200khz,
+        -- ANODS=> ANODOS,
+        -- SAL7SEG=> SAL_7SEG,
+        -- BCD1=>dig1_out,
+        -- BCD2=>dig0_out,
+        -- BCD3=>w_1,
+        -- BCD4=>w_0
+        -- );
         en<=enable;
 end architecture;

@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity contador0a9 is
     port (
-        t_in, rst,en, load, start: in std_logic;
+        t_in, rst, load, start: in std_logic;
         t_out: out std_logic_vector(3 downto 0)
 
         );
@@ -18,15 +18,15 @@ architecture contador0a9 of contador0a9 is
 
     
     begin
-        process(t_in, rst,en,load, start)
+        process(t_in, rst,load, start)
         begin
-            
-            if (rst='1' and en='0') or start='1' then
+
+            if rst='1' or start='1' then
                 contador <= (others => '0');
                 t_out_s <= std_logic_vector(contador);
               
-            elsif rst='0' and en='0' then 
-            if  rising_edge(t_in) and en='0' then
+            elsif rst='0' then 
+            if  rising_edge(t_in) then
                 if contador >= 9 then
                     contador <= (others => '0');
                 else
