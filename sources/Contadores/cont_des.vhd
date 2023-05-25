@@ -8,8 +8,8 @@ entity CONT_2DIG is
         clk: in std_logic;
         reset: in std_logic;
         enable: in std_logic;
-    
-   
+      
+           sr_r: out std_logic;
         dig_in0, dig_in1: in std_logic_vector(3 downto 0);
         num_out: out std_logic_vector(6 downto 0);
         dig0, dig1: out std_logic_vector(3 downto 0)
@@ -22,15 +22,23 @@ architecture Behavioral of CONT_2DIG is
     
     signal count: integer range 90 downto 0 := 0;
     signal dig0_s,dig1_s: unsigned(3 downto 0) := (others => '0');
+    signal r_s: std_logic:='0';
 
     begin
 
-    process(clk, reset, enable, count_in)
+    process(clk, enable, count,r_s)
     begin
     
-    if reset = '1' then        
+     if enable='0' then
+   
+        count <= to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
+            dig0_s <= unsigned(dig_in0); 
+            dig1_s <= unsigned(dig_in1);
 
-        if rising_edge(clk) and enable='1' and count>0 then
+      
+    elsif enable='1' then    
+         
+        if rising_edge(clk) and count>0 then
 
             count <= count - 1;
             if dig0_s=0 then
@@ -38,23 +46,16 @@ architecture Behavioral of CONT_2DIG is
                 dig1_s <= dig1_s - 1;
             else 
                 dig0_s <= dig0_s - 1;
-              
             end if;
-        end if;
-
-        if rising_edge(load) then
-            count <= to_integer(unsigned(dig_in1))*10 + to_integer(unsigned(dig_in0));
-            dig0_s <= unsigned(dig_in0); 
-            dig1_s <= unsigned(dig_in1);
-           
-        end if;
-
-    elsif falling_edge(reset) and enable='0' then
-        count<=0;
-        dig0_s <= (others => '0');
-        dig1_s <= (others => '0');
-      
-    end if;
+            
+--            if count-1 = 0 then
+--            sr_r<='1';
+--            else
+--            sr_r<='0';
+--            end if;
+            
+        end if;         
+     end if;
 
     end process;
     

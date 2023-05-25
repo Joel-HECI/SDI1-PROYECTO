@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- VISUALIZACION DINÁMICA DE 4 DIGITOS HEXADECIMALES
+-- VISUALIZACION DIN�?MICA DE 4 DIGITOS HEXADECIMALES
 ----------------------------------------------------------------------------------
 -- DANILO GARCIA H.--
 --       ECI       --
@@ -52,9 +52,6 @@ SAL7SEG <= 	"1000000" WHEN BCD="0000" ELSE --0
 	   		"1111000" WHEN BCD="0111" ELSE --7
 	   		"0000000" WHEN BCD="1000" ELSE --8
 	   		"0010000" WHEN BCD="1001" ELSE --9
-	   		"0000110" WHEN BCD="1010" ELSE --E
-	   		"0101111" WHEN BCD="1011" ELSE --r
-	   		"0100011" WHEN BCD="1100" ELSE --o
 	   		"1111111";
 
 end Behavioral;
